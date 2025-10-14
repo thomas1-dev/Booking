@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Route Summary</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Ghana Transport</a>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <h2 class="text-center">Route Summary</h2>
+    <p class="text-center text-muted">Explore available routes across Ghana</p>
+
+    <!-- Filters -->
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <input type="text" id="searchInput" class="form-control" placeholder="Search by city...">
+      </div>
+      <div class="col-md-6">
+        <select id="fareFilter" class="form-select">
+          <option value="">Filter by fare</option>
+          <option value="30">Under GHS 30</option>
+          <option value="60">Under GHS 60</option>
+          <option value="100">Under GHS 100</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>Route</th>
+          <th>Departure</th>
+          <th>Destination</th>
+          <th>Estimated Time</th>
+          <th>Sample Fare (GHS)</th>
+        </tr>
+      </thead>
+      <tbody id="routeTableBody">
+        <!-- JavaScript will populate this -->
+      </tbody>
+    </table>
+  </div>
+
+  <footer class="bg-dark text-white text-center py-3 mt-5">
+    <p>&copy; 2025 Ghana Transport</p>
+  </footer>
+
+  <script src="assets/js/routes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
