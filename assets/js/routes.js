@@ -30,9 +30,11 @@ function applyFilters() {
   const fareLimit = parseInt(fareFilter.value);
 
   const filtered = routes.filter(route => {
+    const matchesRoute = route.route.toLowerCase().includes(search);
     const matchesCity = route.from.toLowerCase().includes(search) || route.to.toLowerCase().includes(search);
     const matchesFare = isNaN(fareLimit) || route.fare <= fareLimit;
-    return matchesCity && matchesFare;
+
+    return (matchesRoute || matchesCity) && matchesFare;
   });
 
   renderRoutes(filtered);

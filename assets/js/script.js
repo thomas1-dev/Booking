@@ -3,11 +3,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
   const route = params.get("route");
 
-  // Display route title
   const routeTitle = document.getElementById("routeTitle");
-  if (route) {
-    routeTitle.textContent = `Booking for ${route}`;
-  }
+const station = params.get("station");
+
+if (route) {
+  routeTitle.textContent = `Booking for ${route}${station ? " via " + station : ""}`;
+}
 
   // Update ID placeholder based on type
   document.getElementById("idType").addEventListener("change", function () {
@@ -86,13 +87,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Store data in sessionStorage
     const bookingData = {
-      name: document.getElementById("name").value,
-      idType,
-      idNumber,
-      date: document.getElementById("date").value,
-      passengers: document.getElementById("passengers").value,
-      route: route || "Not selected"
-    };
+  name: document.getElementById("name").value,
+  idType,
+  idNumber,
+  date: document.getElementById("date").value,
+  passengers: document.getElementById("passengers").value,
+  route: route || "Not selected",
+  station: station || "Not specified"
+};
+
 
     sessionStorage.setItem("bookingData", JSON.stringify(bookingData));
     window.location.href = "preview.html";

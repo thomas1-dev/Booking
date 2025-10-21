@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("idNumber").textContent = data.idNumber;
   document.getElementById("date").textContent = data.date;
   document.getElementById("passengers").textContent = data.passengers;
+document.getElementById("station").textContent = data.station;
+
 
   document.getElementById("confirmBtn").addEventListener("click", () => {
     alert(`Thank you, ${data.name}! Your booking has been confirmed.`);
