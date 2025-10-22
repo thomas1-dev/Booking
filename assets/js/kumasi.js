@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   vehicles.forEach(vehicle => {
     const card = document.createElement("div");
-    card.className = "col-md-4 mb-4";
+    card.className = "col-12 col-md-4 mb-4";
     card.innerHTML = `
       <div class="card h-100 shadow-sm">
         <div class="card-body">
