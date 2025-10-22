@@ -38,40 +38,34 @@
 
 
   <div class="container mt-5">
-    <h2 class="text-center">Route Summary</h2>
-    <p class="text-center text-muted">Explore available routes across Ghana</p>
+  <h2 class="text-center">Route Summary</h2>
+  <p class="text-center text-muted">Explore available routes across Ghana</p>
 
-    <!-- Filters -->
-    <div class="container mt-4">
-      <h2 class="text-center">Available Routes</h2>
-      <div class="row mb-3">
-        <div class="col-md-6">
-          <input type="text" id="searchInput" class="form-control" placeholder="Search by city or route">
-        </div>
-        <div class="col-md-6">
-          <input type="number" id="fareFilter" class="form-control" placeholder="Max fare (GHS)">
-        </div>
-      </div>
-      <!-- Table -->
-      <div class="table-responsive">
-        <table class="table table-bordered">
-          <table class="table table-bordered">
-            <thead class="table-dark">
-              <tr>
-                <th>Route</th>
-                <th>From</th>
-                <th>To</th>
-                <th>Duration</th>
-                <th>Fare (GHS)</th>
-              </tr>
-            </thead>
-            <tbody id="routeTableBody"></tbody>
-          </table>
-        </table>
-      </div>
- 
+  <h2 class="text-center mt-4">Available Routes</h2>
+  <div class="row mb-3">
+    <div class="col-12 col-md-6 mb-2 mb-md-0">
+      <input type="text" id="searchInput" class="form-control" placeholder="Search by city or route">
+    </div>
+    <div class="col-12 col-md-6">
+      <input type="number" id="fareFilter" class="form-control" placeholder="Max fare (GHS)">
     </div>
   </div>
+
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th>Route</th>
+          <th>From</th>
+          <th>To</th>
+          <th>Duration</th>
+          <th>Fare (GHS)</th>
+        </tr>
+      </thead>
+      <tbody id="routeTableBody"></tbody>
+    </table>
+  </div>
+</div>
 
 
   <footer class="bg-dark text-white py-4 mt-5">
