@@ -1,79 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <title>Route Summary</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Available Cars in Ho</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="assets/css/style.css">
+ <style>
+  /* Desktop hover */
+@media (min-width: 769px) {
+  .dropdown-submenu:hover > .dropdown-menu {
+    display: block;
+  }
+}
+
+/* Mobile click */
+@media (max-width: 768px) {
+  .dropdown-submenu .dropdown-menu {
+    position: static;
+    margin-left: 0;
+    padding-left: 1rem;
+    border-left: 2px solid #ccc;
+    display: none;
+  }
+
+  .dropdown-submenu.show .dropdown-menu {
+    display: block;
+  }
+
+  .dropdown-submenu > a::after {
+    content: " ▾";
+    float: right;
+  }
+}
+  </style>
 </head>
-
 <body>
-  <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+     <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="index.html">Ghana Transport</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <a class="navbar-brand" href="#">Ghana Transport</a>
 
-      <div class="collapse navbar-collapse" id="navbarContent">
-        <div class="navbar-nav me-auto">
-          <a href="index.html" class="nav-link text-white me-3">
-            <i class="bi bi-house-door me-1"></i>Home
-          </a>
-          <a href="route.html" class="nav-link text-white me-3">
-            <i class="bi bi-map me-1"></i>Routes
-          </a>
-        </div>
-        <form class="d-flex" role="search" id="navSearchForm">
-          <input class="form-control me-2" type="search" placeholder="Search route or city" aria-label="Search"
-            id="navSearchInput">
-          <button class="btn btn-dark" type="submit">Search</button>
-        </form>
+       <div class="navbar-nav flex-row ms-auto">
+  <a href="index.html" class="nav-link text-white me-3">
+    <i class="bi bi-house-door me-1"></i>Home
+  </a>
+</div>
+      <!---Dropdown-->
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="stationDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          Choose Route
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="stationDropdown">
+  <li><a class="dropdown-item" href="ho.html">Ho</a></li>
+  <li><a class="dropdown-item" href="accra.html">Accra</a></li>
+  <li><a class="dropdown-item" href="kumasi.html">Kumasi</a></li>
+</ul>
       </div>
     </div>
   </nav>
 
+  <main class="container mt-5">
+    <h2 class="text-center mb-4">Available Cars in Accra</h2>
+    <div class="row" id="accraVehicleCards"></div>
+  </main>
 
-  <div class="container mt-5">
-    <h2 class="text-center">Route Summary</h2>
-    <p class="text-center text-muted">Explore available routes across Ghana</p>
-
-    <!-- Filters -->
-    <div class="container mt-4">
-      <h2 class="text-center">Available Routes</h2>
-      <div class="row mb-3">
-        <div class="col-md-6">
-          <input type="text" id="searchInput" class="form-control" placeholder="Search by city or route">
-        </div>
-        <div class="col-md-6">
-          <input type="number" id="fareFilter" class="form-control" placeholder="Max fare (GHS)">
-        </div>
-      </div>
-      <!-- Table -->
-      <div class="table-responsive">
-        <table class="table table-bordered">
-          <table class="table table-bordered">
-            <thead class="table-dark">
-              <tr>
-                <th>Route</th>
-                <th>From</th>
-                <th>To</th>
-                <th>Duration</th>
-                <th>Fare (GHS)</th>
-              </tr>
-            </thead>
-            <tbody id="routeTableBody"></tbody>
-          </table>
-        </table>
-      </div>
-
-    </div>
-  </div>
-
-
+  
   <footer class="bg-dark text-white py-4 mt-5">
     <div class="container-fluid">
       <div class="row text-center text-md-start">
@@ -123,9 +113,9 @@
     <i class="bi bi-chat-dots-fill"></i>
   </button>
 
-  <script src="assets/js/routes.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
+  
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/accra.js"></script>
 </body>
-
 </html>

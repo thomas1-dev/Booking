@@ -8,7 +8,10 @@ const routes = [
 const tableBody = document.getElementById("routeTableBody");
 const searchInput = document.getElementById("searchInput");
 const fareFilter = document.getElementById("fareFilter");
+const navSearchInput = document.getElementById("navSearchInput");
+const navSearchForm = document.getElementById("navSearchForm");
 
+// 🔹 Render table rows
 function renderRoutes(filteredRoutes) {
   tableBody.innerHTML = "";
   filteredRoutes.forEach(route => {
@@ -25,6 +28,7 @@ function renderRoutes(filteredRoutes) {
   });
 }
 
+// 🔹 Apply filters from main inputs
 function applyFilters() {
   const search = searchInput.value.toLowerCase();
   const fareLimit = parseInt(fareFilter.value);
@@ -40,9 +44,28 @@ function applyFilters() {
   renderRoutes(filtered);
 }
 
-// Initial render
+// 🔹 Apply navbar search
+function applyNavSearch(query) {
+  const filtered = routes.filter(route => {
+    const matchesRoute = route.route.toLowerCase().includes(query);
+    const matchesCity = route.from.toLowerCase().includes(query) || route.to.toLowerCase().includes(query);
+    return matchesRoute || matchesCity;
+  });
+
+  renderRoutes(filtered);
+}
+
+// 🔹 Initial render
 renderRoutes(routes);
 
-// Event listeners
+// 🔹 Event listeners
 searchInput.addEventListener("input", applyFilters);
 fareFilter.addEventListener("change", applyFilters);
+
+if (navSearchForm && navSearchInput) {
+  navSearchForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const query = navSearchInput.value.toLowerCase().trim();
+    applyNavSearch(query);
+  });
+}
